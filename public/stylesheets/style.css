@@ -12,3 +12,22 @@ a {
 #headline {
    align: center
 }
+
+button {
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+#submit {
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+#guess {
+    font-size: 18px;
+}
+
+#champion {
+    color: gold;
+    font-size: 18px;
+}

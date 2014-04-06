@@ -53,9 +53,9 @@ module.exports = function(app) {
 				res.send(err);
 			}
 			if (guess.toUpperCase() === answer || answer.startsWith(guess.toUpperCase()) && answer.slice(-1) == ")") {
-				res.render("finished.jade", {"message": "Congratulations, you won! View the article you conquered:", "article": guessing['article']});
+				res.render("finished.jade", {"positivemessage": "Congratulations, you won! View the article you conquered:", "article": guessing['article']});
 			} else if (attempts > 3) {
-				res.render("finished.jade", {"message": "Unfortunately, you ran out of guesses. Here is the answer:", "article": guessing["article"]});
+				res.render("finished.jade", {"negativemessage": "Unfortunately, you ran out of guesses. Here is the answer:", "article": guessing["article"]});
 			} else {
 				res.render('hint' + attempts + ".jade", guessing)
 			}

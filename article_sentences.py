@@ -42,7 +42,7 @@ class MyHTMLParser(HTMLParser):
 def censor_func(keywords):
     def censor(string):
         for word in keywords:
-            string = string.replace(word, "this")
+            string = string.replace(word, "THIS")
         return string
     return censor
 
