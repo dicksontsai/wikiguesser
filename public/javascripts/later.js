@@ -1,0 +1,1 @@
+var attempts = $("#attempts").text();

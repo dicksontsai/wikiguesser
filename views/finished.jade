@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  p Thank you for playing "Guess the Wikipedia Title"!
+  p=message
+  a(href="/")
+    h2 Return to homepage
+  iframe(src="http://en.wikipedia.org/wiki/#{article}", width=1000, height=1000)
