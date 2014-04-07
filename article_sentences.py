@@ -56,6 +56,7 @@ if __name__ == "__main__":
         keywords = [word for word in sys.argv[1].split() if word not in stop]
     else:
         keywords = [word for word in sys.argv[1].split() if word not in ('a', 'of', 'the', 'an', 'for', 'to', 'and', 'or', 'not', 'but')]
+    print keywords
     for line in page:
         line = line.decode(encoding)
         parser.feed(line)

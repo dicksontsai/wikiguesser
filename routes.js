@@ -23,21 +23,27 @@ module.exports = function(app) {
 				result_sentences += tata.toString();
 			});
 			sentences.on('close', function (code) {
-				var data = JSON.parse(result_sentences);
-				console.log(data);
-				// Data should be a JSON object
-				GuessingRound.create({
-					hint1: data['hint1'],
-					hint2: data['hint2'],
-					hint3: data['hint3'],
-					article: data['article'],
-					category: data['category']
-				}, function(err, guessing) {
-					if (err) {
-						res.send(err);
-					}
-					res.json(guessing);
-				});
+				try {
+					var data = JSON.parse(result_sentences);
+					console.log(data);
+					// Data should be a JSON object
+					GuessingRound.create({
+						hint1: data['hint1'],
+						hint2: data['hint2'],
+						hint3: data['hint3'],
+						article: data['article'],
+						category: data['category']
+					}, function(err, guessing) {
+						if (err) {
+							res.send(err);
+						}
+						res.json(guessing);
+					});
+				} catch (e) {
+					alert("Something went wrong with the question. Please try again.")
+					console.log("Something went wrong: " + e);
+					res.render('index-heroku.jade');
+				}
 			});
 		});
 	});
