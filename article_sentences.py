@@ -5,10 +5,11 @@ import sys
 import random
 import re
 
-try:
-    from nltk.corpus import stopwords
-except ImportError:
-    stopwords = None
+#try:
+#    from nltk.corpus import stopwords
+#except ImportError:
+#    stopwords = None
+stopwords = None
 class MyHTMLParser(HTMLParser):
     def __init__(self):
         HTMLParser.__init__(self)
@@ -55,10 +56,14 @@ if __name__ == "__main__":
     parser = MyHTMLParser()
     if stopwords:
         stop = stopwords.words('english')
-        keywords = [word for word in sys.argv[1].split() if word not in stop]
+        keywords = [word for word in sys.argv[1].split() if word.lower() not in stop]
     else:
-	stop = ('a', 'of', 'the', 'an', 'for', 'to', 'and', 'or', 'not', 'but', '(', ')', '.', '?', '!', '-')
-        keywords = [word for word in sys.argv[1].split() if word not in stop]
+        stop = []
+        with open("english") as f:
+            for line in f.readlines():
+                stop.append(line.strip())
+        keywords = [word for word in sys.argv[1].split() if word.lower() not in stop]
+    #print keywords
     for line in page:
         line = line.decode(encoding)
         parser.feed(line)

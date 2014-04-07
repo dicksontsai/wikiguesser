@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  p(id="intro") Welcome to Guess the Wikipedia Title! This is a challenging but fun trivia game where you are given snippets of a random but popular Wikipedia article (one of the <a href="http://en.wikipedia.org/wiki/Wikipedia:5000">top 5000</a> visited pages of the month), and you have to use contextual clues and your prior knowledge to guess the title of the article. You get three hints and three tries: are you up for the challenge?
+  p(id="intro") Welcome to Guess the Wikipedia Title! This is a challenging but fun trivia game where you are given snippets of a random but popular Wikipedia article (one of the <a href="http://en.wikipedia.org/wiki/Wikipedia:5000">top 5000</a> visited pages of the month), and you have to use contextual clues and your prior knowledge to guess the title of the article. You get three hints and three tries, and keywords from the answer are hidden with THIS: are you up for the challenge?
   p(id="loading", style="display: none") Your first hint is loading...
   button(id='start') Click to start
   form(id='game', action="http://localhost:3000/api/play", method="post")
