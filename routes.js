@@ -17,14 +17,14 @@ module.exports = function(app) {
 			result_word += data.toString();
 		});
 		article.on('close', function (code) {
-			console.log(result_word);
 			var sentences = spawn('python', ['article_sentences.py', result_word]);
 			var result_sentences = '';
-			sentences.stdout.on('data', function (data) {
-				result_sentences += data.toString();
+			sentences.stdout.on('data', function (tata) {
+				result_sentences += tata.toString();
 			});
 			sentences.on('close', function (code) {
 				var data = JSON.parse(result_sentences);
+				console.log(data);
 				// Data should be a JSON object
 				GuessingRound.create({
 					hint1: data['hint1'],
@@ -54,8 +54,10 @@ module.exports = function(app) {
 			}
 			if (guess.toUpperCase() === answer || answer.startsWith(guess.toUpperCase()) && answer.slice(-1) == ")") {
 				res.render("finished.jade", {"positivemessage": "Congratulations, you won! View the article you conquered:", "article": guessing['article']});
+				guessing.remove();
 			} else if (attempts > 3) {
 				res.render("finished.jade", {"negativemessage": "Unfortunately, you ran out of guesses. Here is the answer:", "article": guessing["article"]});
+				guessing.remove();
 			} else {
 				//res.render('hint' + attempts + ".jade", guessing)
 				res.render('hint' + attempts + "-heroku.jade", guessing);
