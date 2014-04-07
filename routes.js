@@ -57,7 +57,8 @@ module.exports = function(app) {
 			} else if (attempts > 3) {
 				res.render("finished.jade", {"negativemessage": "Unfortunately, you ran out of guesses. Here is the answer:", "article": guessing["article"]});
 			} else {
-				res.render('hint' + attempts + ".jade", guessing)
+				//res.render('hint' + attempts + ".jade", guessing)
+				res.render('hint' + attempts + "-heroku.jade", guessing);
 			}
 		})
 
@@ -65,6 +66,7 @@ module.exports = function(app) {
 
 	// Application ----------------
 	app.get('*', function (req, res) {
-		res.render('index.jade');
+		//res.render('index.jade');
+		res.render('index-heroku.jade');
 	});
 };

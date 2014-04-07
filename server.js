@@ -2,7 +2,8 @@ var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 var port = process.env.PORT || 3000;
-var database = require('./config/database');
+var database = require('./config/database-heroku');
+//var database = require('./config/database');
 var path = require('path');
 
 

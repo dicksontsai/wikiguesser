@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  p Sorry, but your previous answer was incorrect!
+  form(id='game', action="/api/play", method="post")
+    input(id='attempts', name='attempts', style='display: none', value='3')
+    input(id='id', name='id', style='display: none', value='#{id}')
+    div(id='hints')
+      p Hint 1: #{hint1}
+      p Hint 2: #{hint2}
+      input(type='text', name='guess', id='guess')
+      input(type='submit', id='submit', value='Submit guess')
+  script(src='/javascripts/later.js')

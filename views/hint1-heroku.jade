@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  p Welcome to Guess the Wikipedia Title!
+  form(id='game', action="/api/play", method="post")
+    input(id='attempts', name='attempts', style='display: none', value='2')
+    div(id='hints')
+      p Hint 1: #{hint1}
+      input(type='text', name='guess', id='guess')
+      input(type='submit', id='submit', value='Submit guess')
+  script(src='/javascripts/later.js')
