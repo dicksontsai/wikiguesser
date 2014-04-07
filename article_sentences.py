@@ -3,6 +3,7 @@ import urllib as url
 import json
 import sys
 import random
+import re
 
 try:
     from nltk.corpus import stopwords
@@ -41,8 +42,9 @@ class MyHTMLParser(HTMLParser):
 
 def censor_func(keywords):
     def censor(string):
-        for word in keywords:
-            string = string.replace(word, "THIS")
+        reg_exps = [re.compile(unicode(word), re.IGNORECASE) for word in keywords]
+        for reg_exp in reg_exps:
+            string = reg_exp.sub("THIS", string)
         return string
     return censor
 
