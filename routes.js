@@ -40,7 +40,6 @@ module.exports = function(app) {
 						res.json(guessing);
 					});
 				} catch (e) {
-					alert("Something went wrong with the question. Please try again.")
 					console.log("Something went wrong: " + e);
 					res.render('index-heroku.jade');
 				}
