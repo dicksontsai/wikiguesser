@@ -38,7 +38,7 @@ button {
     text-align: right;
 }
 
-#score, #attempts {
+#score, #games-started {
   position: relative;
   background: #0082EE;
   display: inline-block;
