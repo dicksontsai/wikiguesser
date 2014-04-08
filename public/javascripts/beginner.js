@@ -67,7 +67,7 @@ LocalStorageManager.prototype.clearData = function () {
 /* End localstorage code */
 var storageManager = new LocalStorageManager;
 $('#score').text(storageManager.getScore());
-$('#attempts').text(storageManager.getAttempts());
+$('#games-started').text(storageManager.getAttempts());
 
 $('#start').click(function (event) {
 	console.log("Start button is clicked");
