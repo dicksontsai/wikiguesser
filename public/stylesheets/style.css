@@ -31,3 +31,53 @@ button {
     color: gold;
     font-size: 18px;
 }
+
+/* The following CSS was inspired by Gabriele Cirulli's 2048: http://gabrielecirulli.github.io/2048/style/main.css */
+#stats {
+    float: right;
+    text-align: right;
+}
+
+#score, #attempts {
+  position: relative;
+  background: #0082EE;
+  display: inline-block;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  height: 25px;
+  font-size: 25px;
+  line-height: 47px;
+  font-weight: bold;
+  margin: 5px;
+}
+
+#score {
+  padding: 15px 25px;
+}
+
+#games-started {
+  padding: 15px 35px;
+}
+
+#score:after, #games-started:after {
+  position: absolute;
+  width: 100%;
+  top: 10px;
+  left: 0;
+  text-transform: uppercase;
+  font-size: 13px;
+  line-height: 13px;
+  text-align: center;
+  color: #eeeeee;
+}
+#score:after {
+  content: "Score";
+}
+#games-started:after {
+  content: "Attempts";
+}
+
+footer {
+  margin-top: 35px;
+}

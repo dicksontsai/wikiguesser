@@ -4,6 +4,7 @@ block content
   p Thank you for playing "Guess the Wikipedia Title"!
   if positivemessage
     p(id="champion")=positivemessage
+    script(src="/javascripts/finished.js")
   else
     p=negativemessage
   a(href="/")

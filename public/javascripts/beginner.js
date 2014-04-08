@@ -1,4 +1,5 @@
 var attempts = $("#attempts").text();
+this.storageManager = new LocalStorageManager;
 
 $('#start').click(function (event) {
 	console.log("Start button is clicked");
@@ -11,9 +12,10 @@ $('#start').click(function (event) {
 		//url: "http://localhost:3000/api/start"
 		url: "/api/start"
 	}).done(function (data) {
-		console.log(data);
 		$('#loading').hide();
+                $('#welcome-pane').hide();
 		$('#hints').append("<p>Hint 1: "+data['hint1']+"</p>");
 		$('#id').val(data['_id']);
+		this.storageManager.setAttempts(Number(this.storageManager.getAttempts()) + 1);
 	});
 });
