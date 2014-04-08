@@ -65,9 +65,9 @@ LocalStorageManager.prototype.clearData = function () {
   this.storage.removeItem(this.scoreKey);
 };
 /* End localstorage code */
-this.storageManager = new LocalStorageManager;
-$('#score').text(this.storageManager.getScore());
-$('#attempts').text(this.storageManager.getAttempts());
+var storageManager = new LocalStorageManager;
+$('#score').text(storageManager.getScore());
+$('#attempts').text(storageManager.getAttempts());
 
 $('#start').click(function (event) {
 	console.log("Start button is clicked");
@@ -76,7 +76,7 @@ $('#start').click(function (event) {
 	$('#loading').show();
 	$('#guess').show();
 	$('#submit').show();
-       this.storageManager.setAttempts(Number(this.storageManager.getAttempts()) + 1);
+       storageManager.setAttempts(Number(storageManager.getAttempts()) + 1);
        console.log("Attempts changed")
 	$.ajax({
 		//url: "http://localhost:3000/api/start"
