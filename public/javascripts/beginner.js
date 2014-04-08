@@ -66,6 +66,8 @@ LocalStorageManager.prototype.clearData = function () {
 };
 /* End localstorage code */
 this.storageManager = new LocalStorageManager;
+$('#score').text(this.storageManager.getScore());
+$('#attempts').text(this.storageManager.getAttempts());
 
 $('#start').click(function (event) {
 	console.log("Start button is clicked");
@@ -74,6 +76,8 @@ $('#start').click(function (event) {
 	$('#loading').show();
 	$('#guess').show();
 	$('#submit').show();
+       this.storageManager.setAttempts(Number(this.storageManager.getAttempts()) + 1);
+       console.log("Attempts changed")
 	$.ajax({
 		//url: "http://localhost:3000/api/start"
 		url: "/api/start"
@@ -82,6 +86,5 @@ $('#start').click(function (event) {
                 $('#welcome-pane').hide();
 		$('#hints').append("<p>Hint 1: "+data['hint1']+"</p>");
 		$('#id').val(data['_id']);
-		this.storageManager.setAttempts(Number(this.storageManager.getAttempts()) + 1);
 	});
 });
